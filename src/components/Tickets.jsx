@@ -12,9 +12,15 @@ function Tickets() {
 
   return (
     <div className="m-0 p-4 bg-blue-50 space-y-4">
-      {localTickets.map((ticket, index) => (
-        <Ticket key={index} ticketData={ticket} />
-      ))}
+      {localTickets.length === 0 ? (
+        <div className="text-center text-gray-600">
+          <p className="text-xl font-semibold">No tickets found</p>
+        </div>
+      ) : (
+        localTickets
+          .map((ticket, index) => <Ticket key={index} ticketData={ticket} />)
+          .slice(0)
+      )}
     </div>
   );
 }
