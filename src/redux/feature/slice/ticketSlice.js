@@ -3,6 +3,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 const initialState = {
   allTickets: [],
   filteredTickets: [],
+  ticketsPerPage: 100,
 };
 
 export const ticketsSlice = createSlice({
@@ -11,7 +12,6 @@ export const ticketsSlice = createSlice({
   reducers: {
     fetchTickets: (state, action) => {
       const filter = action.payload;
-      console.log("filtering tickets based on : ", filter);
       switch (filter) {
         case "ALL":
           state.filteredTickets = state.allTickets;
@@ -79,7 +79,6 @@ export const ticketsSlice = createSlice({
     },
     searchTicket: (state, action) => {
       const searchText = action.payload;
-      console.log("here", searchText);
       const searchedTickets = state.filteredTickets.filter((ticket) => {
         return [
           ticket.channel,
@@ -97,6 +96,9 @@ export const ticketsSlice = createSlice({
       });
       state.filteredTickets = searchedTickets;
     },
+    updateTicketPerPage: (state, action) => {
+      state.ticketsPerPage = action.payload;
+    },
   },
 });
 
@@ -107,6 +109,7 @@ export const {
   deleteTicket,
   searchTicket,
   fetchTicketById,
+  updateTicketPerPage,
 } = ticketsSlice.actions;
 
 export default ticketsSlice.reducer;

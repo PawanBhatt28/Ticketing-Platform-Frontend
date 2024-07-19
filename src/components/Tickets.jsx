@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 function Tickets() {
   const storedTickets = useSelector((state) => state.filteredTickets);
   const [localTickets, setLocalTickets] = useState([]);
+  const ticketsPerPage = useSelector((state) => state.ticketsPerPage);
 
   useEffect(() => {
     setLocalTickets(storedTickets);
@@ -19,7 +20,7 @@ function Tickets() {
       ) : (
         localTickets
           .map((ticket, index) => <Ticket key={index} ticketData={ticket} />)
-          .slice(0)
+          .slice(0, ticketsPerPage)
       )}
     </div>
   );
