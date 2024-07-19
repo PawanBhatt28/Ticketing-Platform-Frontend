@@ -59,7 +59,6 @@ const CreateTicketForm = () => {
       onSubmit={handleSubmit}
       className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg border border-gray-300"
     >
-      handleSubmit
       <h2 className="text-3xl font-semibold mb-6 text-gray-800">
         Create Ticket
       </h2>
