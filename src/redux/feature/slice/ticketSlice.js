@@ -1,5 +1,4 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { act } from "react";
 
 const initialState = {
   allTickets: [],
@@ -61,6 +60,7 @@ export const ticketsSlice = createSlice({
     createTicket: (state, action) => {
       state.allTickets.push(action.payload);
       state.filteredTickets.push(action.payload);
+      console.log("ticket added : ", action.payload);
     },
     deleteTicket: (state, action) => {
       const allLeftTickets = state.allTickets.filter(
@@ -106,6 +106,7 @@ export const {
   createTicket,
   deleteTicket,
   searchTicket,
+  fetchTicketById,
 } = ticketsSlice.actions;
 
 export default ticketsSlice.reducer;

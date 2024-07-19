@@ -2,7 +2,7 @@ import SidebarButton from "../components/SidebarButton";
 
 function Sidebar({ onFilterChange }) {
   return (
-    <nav className="m-0 w-48 h-full bg-gray-100 p-4 flex flex-col space-y-2">
+    <nav className="m-0 w-48 h-fit bg-gray-100 p-4 flex flex-col space-y-2">
       <SidebarButton data={"All Tickets"} filter={"ALL"} />
       <SidebarButton data={"Unassigned"} filter={"ASSIGNED"} />
       <SidebarButton data={"All pending"} filter={"PENDING"} />

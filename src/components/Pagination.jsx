@@ -15,29 +15,25 @@ const Pagination = ({ totalTickets = 994 }) => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-4 text-white">
+    <div className="flex items-center justify-between space-x-4 text-white">
       <div className="flex items-center space-x-4">
-        <div>
-          <label htmlFor="ticketsPerPage" className="mr-2">
-            Show
-          </label>
-          <select
-            id="ticketsPerPage"
-            value={ticketsPerPage}
-            onChange={handleTicketsPerPageChange}
-            className="px-2 py-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
-          >
-            <option value={10}>10</option>
-            <option value={20}>20</option>
-            <option value={50}>50</option>
-            <option value={100}>100</option>
-          </select>
-        </div>
-        <div>
-          <span>
-            {startTicket}-{endTicket} of {totalTickets}
-          </span>
-        </div>
+        <label htmlFor="ticketsPerPage" className="mr-2">
+          Show
+        </label>
+        <select
+          id="ticketsPerPage"
+          value={ticketsPerPage}
+          onChange={handleTicketsPerPageChange}
+          className=" border rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+        >
+          <option value={10}>10</option>
+          <option value={20}>20</option>
+          <option value={50}>50</option>
+          <option value={100}>100</option>
+        </select>
+        <span>
+          {startTicket}-{endTicket} of {totalTickets}
+        </span>
       </div>
       <PaginationNav
         totalPages={totalPages}

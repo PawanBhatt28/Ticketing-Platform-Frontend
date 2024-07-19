@@ -14,13 +14,13 @@ const PaginationNav = ({ totalPages, currentPage, setCurrentPage }) => {
   };
 
   return (
-    <div className="flex items-center space-x-4 mt-4 text-white">
+    <div className="flex items-center space-x-4 text-white">
       <button
         onClick={handlePreviousPage}
         className="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50"
         disabled={currentPage === 1}
       >
-        Previous
+        &lt;
       </button>
       <span>{`Page ${currentPage} of ${totalPages}`}</span>
       <button
@@ -28,7 +28,7 @@ const PaginationNav = ({ totalPages, currentPage, setCurrentPage }) => {
         className="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50"
         disabled={currentPage === totalPages}
       >
-        Next
+        &gt;
       </button>
     </div>
   );
