@@ -42,8 +42,24 @@ function TicketPage() {
 
   return (
     <div className="flex flex-col h-screen">
-      <header className="w-full p-4 bg-gray-100 text-left text-2xl font-bold flex justify-between items-center">
-        <div>Tickets</div>
+      <header className="w-full p-6 text-black text-left text-3xl font-bold flex justify-between items-center shadow-md">
+        <div className="flex items-center space-x-4">
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 19V6h13M5 17L9 3l13 13-4 7H5z"
+            />
+          </svg>
+          <span>Tickets</span>
+        </div>
         <div className="text-right text-lg">{`Total Tickets: ${ticketCount}`}</div>
       </header>
       <div className="flex flex-1">

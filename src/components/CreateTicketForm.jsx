@@ -4,7 +4,7 @@ import { createTicket } from "../redux/feature/slice/ticketSlice";
 import { useNavigate } from "react-router-dom";
 
 const channels = ["Email", "Phone", "Chat"];
-const statuses = ["Closed", "Pending", "Open"];
+const statuses = ["Open", "Pending", "Closed"];
 const priorities = ["High", "Medium", "Low"];
 
 const getCurrentDate = () => {
@@ -68,6 +68,7 @@ const CreateTicketForm = () => {
             Created By
           </label>
           <input
+            required
             type="text"
             id="createdBy"
             name="createdBy"
@@ -105,6 +106,7 @@ const CreateTicketForm = () => {
             Description
           </label>
           <textarea
+            required
             id="description"
             name="description"
             value={formData.description}
@@ -177,6 +179,7 @@ const CreateTicketForm = () => {
             Assigned To
           </label>
           <input
+            required
             type="text"
             id="assignedTo"
             name="assignedTo"

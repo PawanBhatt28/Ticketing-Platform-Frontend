@@ -3,7 +3,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 const initialState = {
   allTickets: [],
   filteredTickets: [],
-  ticketsPerPage: 100,
+  ticketsPerPage: 10,
 };
 
 export const ticketsSlice = createSlice({
@@ -39,17 +39,17 @@ export const ticketsSlice = createSlice({
           break;
         case "ASSIGNED_TO":
           state.filteredTickets = state.allTickets.filter(
-            (ticket) => ticket.assignedTo === "pawan"
+            (ticket) => ticket.assignedTo === "pawan bhatt"
           );
           break;
         case "CREATED_BY":
           state.filteredTickets = state.allTickets.filter(
-            (ticket) => ticket.createdBy === "pawan"
+            (ticket) => ticket.createdBy === "pawan bhatt"
           );
           break;
         case "COMPLETED_BY":
           state.filteredTickets = state.allTickets.filter(
-            (ticket) => ticket.completedBy === "pawan"
+            (ticket) => ticket.completedBy === "pawan bhatt"
           );
           break;
         default:

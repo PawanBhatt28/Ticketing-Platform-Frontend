@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { fetchTicketById } from "../redux/feature/slice/ticketSlice";
 import { Mail, Phone, Chat } from "@mui/icons-material";
 
 const getPriorityColor = (priority) => {
@@ -25,10 +24,10 @@ const formatDate = (dateString) => {
 
 function TicketDetails() {
   const { id } = useParams();
+
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const ticket = useSelector((state) =>
-    state.allTickets.find((ticket) => ticket.id === id)
+    state.allTickets.find((ticket) => ticket.id == id)
   );
 
   if (!ticket) return <div>Ticket not found</div>;

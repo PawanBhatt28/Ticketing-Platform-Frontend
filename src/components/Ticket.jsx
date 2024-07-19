@@ -29,8 +29,13 @@ function Ticket({ ticketData }) {
 
   const deleteTicketHandler = (id) => {
     console.log("starting to delete ticket.");
-    dispatch(deleteTicket(id));
-    console.log("ticket deleted");
+    const confirmDelete = window.confirm("Are you sure want to delete? ");
+    if (confirmDelete) {
+      dispatch(deleteTicket(id));
+      console.log("ticket deleted");
+    } else {
+      console.log("ticket not deleted");
+    }
   };
 
   const viewDetailsHandler = (id) => {
@@ -38,7 +43,7 @@ function Ticket({ ticketData }) {
   };
 
   return (
-    <div className="relative h-12 flex items-center justify-between p-4 border rounded-md shadow-sm bg-white mb-2 hover:bg-gray-50 transition-colors">
+    <div className="hover:cursor-pointer relative h-12 flex items-center justify-between p-4 border rounded-md shadow-sm bg-white mb-2 hover:bg-gray-50 transition-colors">
       <div className="flex items-center space-x-4 flex-1 relative">
         {/* Ticket ID */}
         <div className="flex-1 truncate text-center ml-2 relative group">
@@ -51,9 +56,15 @@ function Ticket({ ticketData }) {
         </div>
 
         {/* Channel Icons */}
-        {ticketData.channel === "Email" && <Mail className="text-blue-500" />}
-        {ticketData.channel === "Phone" && <Phone className="text-green-500" />}
-        {ticketData.channel === "Chat" && <Chat className="text-purple-500" />}
+        {ticketData.channel === "Email" && (
+          <Mail className="text-blue-500 hover:cursor-pointer" />
+        )}
+        {ticketData.channel === "Phone" && (
+          <Phone className="text-green-500 hover:cursor-pointer" />
+        )}
+        {ticketData.channel === "Chat" && (
+          <Chat className="text-purple-500 hover:cursor-pointer" />
+        )}
 
         {/* Description */}
         <div className="relative flex-1 truncate text-center group">
